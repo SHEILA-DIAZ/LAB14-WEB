@@ -1,4 +1,4 @@
-﻿import { Metadata } from 'next';
+import { Metadata } from 'next';
 import { projects } from '@/lib/data';
 import ProjectCard from '@/components/ProjectCard';
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Proyectos - Portafolio',
     description: 'Explora mi colección de proyectos de desarrollo web',
-    images: ['/og-projects.jpg'],
+    images: ['/laboratorio-14.png'],
   },
 };
 
@@ -17,7 +17,7 @@ export default function ProjectsPage() {
     <div className="container mx-auto px-4 py-12">
       <h1 className="text-4xl font-bold text-gray-900 mb-4">Mis Proyectos</h1>
       <p className="text-lg text-gray-600 mb-12">
-        Una colección de proyectos en los que he trabajado
+        Mi trabajo del Laboratorio 14 y las fichas de ejemplo que usé para practicar las rutas y los metadatos.
       </p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

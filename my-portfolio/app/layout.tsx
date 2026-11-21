@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
@@ -37,9 +37,7 @@ export const metadata: Metadata = {
     siteName: personalInfo.name,
     images: [
       {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
+        url: '/laboratorio-14.png',
         alt: `${personalInfo.name} - Portafolio`,
       },
     ],
@@ -48,8 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${personalInfo.name} - ${personalInfo.title}`,
     description: personalInfo.description,
-    images: ['/og-image.jpg'],
-    creator: '@tuusuario',
+    images: ['/laboratorio-14.png'],
   },
   robots: {
     index: true,
@@ -61,9 +58,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  verification: {
-    google: 'tu-codigo-de-verificacion',
   },
 };
 

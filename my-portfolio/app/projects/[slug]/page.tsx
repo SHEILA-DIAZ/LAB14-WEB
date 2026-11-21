@@ -1,4 +1,4 @@
-﻿import { Metadata } from 'next';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -75,6 +75,15 @@ export default async function ProjectDetailPage({ params }: Props) {
         </div>
 
         <p className="text-lg text-gray-700 mb-6">{project.description}</p>
+
+        {project.details && (
+          <section className="mb-6 max-w-3xl">
+            <h2 className="mb-3 text-2xl font-bold text-gray-900">Desarrollo y verificación</h2>
+            {project.details.map((detail) => (
+              <p key={detail} className="mb-3 text-gray-700">{detail}</p>
+            ))}
+          </section>
+        )}
 
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-3">

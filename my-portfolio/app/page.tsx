@@ -1,4 +1,3 @@
-﻿import Image from 'next/image';
 import Link from 'next/link';
 import { projects, personalInfo } from '@/lib/data';
 import ProjectCard from '@/components/ProjectCard';
@@ -10,16 +9,7 @@ export default function Home() {
     <div className="container mx-auto px-4 py-12">
       {/* Hero Section */}
       <section className="text-center mb-20">
-        <div className="relative w-32 h-32 mx-auto mb-6">
-          <Image
-            src={personalInfo.avatar}
-            alt={personalInfo.name}
-            fill
-            className="rounded-full object-cover"
-            priority
-            sizes="128px"
-          />
-        </div>
+        <div aria-hidden="true" className="mx-auto mb-6 grid h-24 w-24 place-items-center rounded-full bg-blue-100 text-2xl font-bold text-blue-900">SD</div>
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
           {personalInfo.name}
         </h1>

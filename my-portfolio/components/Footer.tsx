@@ -1,4 +1,4 @@
-﻿import { personalInfo } from '@/lib/data';
+import { personalInfo } from '@/lib/data';
 
 export default function Footer() {
   return (
@@ -17,14 +17,6 @@ export default function Footer() {
               className="text-gray-400 hover:text-white transition"
               aria-label="GitHub"
             > GitHub
-            </a>
-            <a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition"
-              aria-label="LinkedIn"
-            > LinkedIn
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
