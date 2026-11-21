@@ -1,44 +1,42 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { projects, personalInfo } from '@/lib/data';
 import ProjectCard from '@/components/ProjectCard';
+import { personalInfo, projects } from '@/lib/data';
 
 export default function Home() {
-  const featuredProjects = projects.filter((p) => p.featured);
-
   return (
-    <div className="container mx-auto px-4 py-12">
-      {/* Hero Section */}
-      <section className="text-center mb-20">
-        <div aria-hidden="true" className="mx-auto mb-6 grid h-24 w-24 place-items-center rounded-full bg-blue-100 text-2xl font-bold text-blue-900">SD</div>
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
-          {personalInfo.name}
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-600 mb-6">
-          {personalInfo.title}
-        </p>
-        <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-8">
-          {personalInfo.description}
-        </p>
-        <div className="flex gap-4 justify-center">
-          <Link
-            href="/projects"
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-          > Ver Proyectos
-          </Link>
-          <Link
-            href="/about"
-            className="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition"
-          > Sobre Mí
-          </Link>
+    <div className="site-shell">
+      <section className="hero">
+        <div className="hero-copy">
+          <p className="eyebrow">Portafolio de desarrollo web</p>
+          <h1>Sheila Díaz <em>Rojas.</em></h1>
+          <p className="hero-intro">
+            Estudio desarrollo web en Tecsup. Aquí comparto lo que voy aprendiendo al diseñar,
+            programar y publicar sitios web.
+          </p>
+          <div className="actions">
+            <Link href="/projects" className="button button-primary">Ver proyectos</Link>
+            <Link href="/about" className="button button-outline">Sobre mí</Link>
+          </div>
+        </div>
+        <div className="hero-portrait">
+          <Image
+            src={personalInfo.portrait}
+            alt="Retrato ilustrado de Sheila Díaz Rojas"
+            fill
+            preload
+            sizes="(max-width: 680px) calc(100vw - 48px), (max-width: 1100px) 40vw, 430px"
+          />
         </div>
       </section>
-      {/* Featured Projects */}
-      <section>
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-          Proyectos Destacados
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProjects.map((project) => (
+
+      <section className="section-band" aria-labelledby="featured">
+        <div className="section-header">
+          <h2 id="featured" className="display-heading">Proyecto destacado</h2>
+          <Link href="/projects" className="inline-link">Todos los proyectos</Link>
+        </div>
+        <div className="project-grid">
+          {projects.filter((project) => project.featured).map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>

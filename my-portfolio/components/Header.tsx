@@ -1,44 +1,25 @@
-﻿
 import Link from 'next/link';
 import { personalInfo } from '@/lib/data';
 
+const navigation = [
+  ['/', 'Inicio'],
+  ['/projects', 'Proyectos'],
+  ['/about', 'Sobre mí'],
+  ['/contact', 'Contacto'],
+];
+
 export default function Header() {
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <Link href="/" className="text-2xl font-bold text-gray-900 font-display">
-            {personalInfo.name}
-          </Link>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
-            <li>
-              <Link
-                href="/"
-                className="text-gray-700 hover:text-blue-600 transition"
-              > Inicio
-              </Link>
+    <header className="site-header">
+      <nav className="site-shell header-row" aria-label="Navegación principal">
+        <Link href="/" className="wordmark" aria-label={personalInfo.name}>Sheila Díaz<span>.</span></Link>
+        <ul className="nav-links">
+          {navigation.map(([href, label]) => (
+            <li key={href}>
+              <Link href={href} className={href === '/contact' ? 'nav-contact' : undefined}>{label}</Link>
             </li>
-            <li>
-              <Link
-                href="/projects"
-                className="text-gray-700 hover:text-blue-600 transition"
-              > Proyectos
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                className="text-gray-700 hover:text-blue-600 transition"
-              > Sobre Mí
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition">
-                Contacto
-              </Link>
-            </li>
-          </ul>
-        </div>
+          ))}
+        </ul>
       </nav>
     </header>
   );

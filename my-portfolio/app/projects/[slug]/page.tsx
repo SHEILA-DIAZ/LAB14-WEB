@@ -51,15 +51,15 @@ export default async function ProjectDetailPage({ params }: Props) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="site-shell page-section">
       <Link
         href="/projects"
-        className="text-blue-600 hover:underline mb-6 inline-block"
-      > ← Volver a Proyectos
+        className="inline-link mb-6 inline-block"
+      > Volver a proyectos
       </Link>
 
       <article>
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <h1 className="page-title">
           {project.title}
         </h1>
 
@@ -69,16 +69,16 @@ export default async function ProjectDetailPage({ params }: Props) {
             alt={project.title}
             fill
             className="object-cover"
-            priority
+            preload
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
           />
         </div>
 
-        <p className="text-lg text-gray-700 mb-6">{project.description}</p>
+        <p className="page-copy mb-6">{project.description}</p>
 
         {project.details && (
           <section className="mb-6 max-w-3xl">
-            <h2 className="mb-3 text-2xl font-bold text-gray-900">Desarrollo y verificación</h2>
+            <h2 className="mb-3 font-serif text-2xl">Desarrollo y verificación</h2>
             {project.details.map((detail) => (
               <p key={detail} className="mb-3 text-gray-700">{detail}</p>
             ))}
@@ -86,14 +86,14 @@ export default async function ProjectDetailPage({ params }: Props) {
         )}
 
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">
+          <h2 className="font-serif text-2xl mb-3">
             Tecnologías Utilizadas
           </h2>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                className="tag"
               > {tech}
               </span>
             ))}
@@ -106,7 +106,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+              className="button button-primary"
             > Ver Demo
             </a>
           )}
@@ -115,7 +115,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition"
+              className="button button-outline"
             > Ver Código
             </a>
           )}

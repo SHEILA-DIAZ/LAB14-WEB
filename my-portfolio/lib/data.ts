@@ -45,5 +45,6 @@ export const personalInfo = {
   description: 'Portafolio académico de Sheila Díaz Rojas sobre desarrollo web, optimización de imágenes y SEO con Next.js',
   email: 'sheila.diaz@tecsup.edu.pe',
   github: 'https://github.com/SHEILA-DIAZ',
+  portrait: '/retrato-sheila.webp',
   siteUrl: (process.env.SITE_URL || 'http://localhost:3000').replace(/\/+$/, ''),
 };

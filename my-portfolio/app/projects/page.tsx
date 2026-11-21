@@ -14,15 +14,15 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold text-gray-900 mb-4">Mis Proyectos</h1>
-      <p className="text-lg text-gray-600 mb-12">
+    <div className="site-shell page-section">
+      <h1 className="page-title">Proyectos</h1>
+      <p className="page-copy page-intro">
         Mi trabajo del Laboratorio 14 y las fichas de ejemplo que usé para practicar las rutas y los metadatos.
       </p>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="project-grid">
         {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+          <ProjectCard key={project.slug} project={project} heading="h2" />
         ))}
       </div>
     </div>

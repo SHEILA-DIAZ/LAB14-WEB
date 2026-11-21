@@ -1,15 +1,8 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { personalInfo } from '@/lib/data';
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(personalInfo.siteUrl),
@@ -67,10 +60,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={inter.variable}>
-      <body className="flex flex-col min-h-screen">
+    <html lang="es">
+      <body className="flex min-h-screen flex-col">
+        <a className="skip-link" href="#contenido">Ir al contenido</a>
         <Header />
-        <main className="grow bg-gray-50">{children}</main>
+        <main id="contenido" className="grow">{children}</main>
         <Footer />
       </body>
     </html>
